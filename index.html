@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes populares</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1>Filmes populares</h1>
+        <div class="campoDePesquisa">
+            <input type="search" name="procuraFilme" id="procuraFilme" placeholder="Digite algum filme para pesquisar...">
+            <span class="lupa"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        <div>
+            
+        
+            <input type="checkbox" name="mostrarFilmesFav" id="mostrarFilmesFav">
+            <label for="mostrarFilmesFav">Mostrar meus filmes favoritos apenas</label>
+        </div>
+    </header>
+    <main>
+        <div class="filme">
+            <img src="./assets/imagem-de-filme.png" alt="imagem do filme" class="imagemDoFilme">
+            <div class="informacoesDoFilme">
+                <p>
+                    Avengers EndGame (2019)
+                </p>
+                <div>
+                    <div class="avaliacao">
+                        <i></i>
+                        <p>9.2</p>
+                    </div>
+                    <div class="favoritar">
+                        <i></i>
+                        <p>Favoritar</p>
+                    </div>
+                </div>
+            </div>
+            <p class="descricaoDoFilme">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            
+        </div>
+    </main>
+</body>
+</html>

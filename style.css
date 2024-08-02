@@ -1,95 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Kumbh Sans", sans-serif;
-}
-
-body{
-    background: #17162E;
-    color: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
-header{
-    display: flex;
-    flex-direction: column;
-    margin: 2em auto;
-    width: 90%;
-    align-items: center;
-}
-header h1{
-    font-weight: 600;
-    font-size: 36px;
-}
-header .campoDePesquisa{
-    width: 40%;
-    position: relative;
-    margin: 32px 0;
+body {
+  background: #17162e;
+  color: #ffffff;
 }
 
-header #procuraFilme{
-    background-color: hsla(0, 0%, 100%, 0.2);
-    border: none;
-    width: 100%;
-    padding: 16px;
-    border-radius: 8px;
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 2em auto;
+  width: 90%;
+  align-items: center;
+}
+header h1 {
+  font-weight: 600;
+  font-size: 36px;
+}
+header .campoDePesquisa {
+  width: 40%;
+  position: relative;
+  margin: 32px 0;
 }
 
-header .lupa{
-    position: absolute;
-    right: 2em;
-    top: 50%;
-    transform: translateY(-50%);
+header #procuraFilme {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border: none;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+header .lupa {
+  position: absolute;
+  right: 2em;
+  top: 50%;
+  transform: translateY(-50%);
 }
 header input[type="checkbox"] {
-    display: none;
+  display: none;
 }
 
 header input[type="checkbox"] + label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 30px;
-    line-height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px;
+  line-height: 20px;
 }
 
 header input[type="checkbox"] + label:before {
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border: 2px solid #706ea8;
-    border-radius: 4px;
-    position: absolute;
-    left: 0;
-    top: 0;
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #706ea8;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-main .filme{
-    display: flex;
-    align-items: center;
-    width: 80%;
-    justify-content: space-between;
-    margin: 0 auto;
-    box-shadow: 4px 4px 30px black;
-    border-radius: 8px;
-    background-color: #1D1C3B;
-    padding: 30px;
+header input[type="checkbox"]:checked + label:before {
+  background-color: #706ea8;
+  content: "✓";
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+main .filme {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.219);
+  border-radius: 8px;
+  background-color: #1d1c3b;
+  padding: 30px;
+  margin-bottom: 3em;
 }
 
-main .filme img{
-    width: 10%;
-    border-radius: 50%;
+main .filme img {
+  width: 10%;
+  border-radius: 50%;
 }
 
-main .filme div{
-    width: 30%;
+main .filme .informacoesDoFilme {
+  font-family: 18px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
 }
 
-main .filme .descricaoDoFilme{
-    width: 50%;
-    color: #ACACAC;
-    line-height: 1.5em;
+main .filme .feedback {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .filme .feedback > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+main .filme .feedback > div .fa-star {
+  color: #d7a82f;
+}
+main .filme .feedback > div .fa-heart {
+  color: #ba0707;
+}
+
+main .filme .descricaoDoFilme {
+  width: 60%;
+  font-size: 18px;
+  color: #acacac;
+  line-height: 1.5em;
 }

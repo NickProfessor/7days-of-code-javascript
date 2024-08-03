@@ -91,7 +91,10 @@ main .filme {
 }
 
 main .filme img {
-  width: 10%;
+  width: 20%; /* ou um valor fixo, como 300px */
+  height: 200px;
+  object-fit: contain; /* ou cover */
+
   border-radius: 50%;
 }
 
@@ -123,7 +126,7 @@ main .filme .feedback > div .fa-heart {
 }
 
 main .filme .descricaoDoFilme {
-  width: 60%;
+  width: 50%;
   font-size: 18px;
   color: #acacac;
   line-height: 1.5em;

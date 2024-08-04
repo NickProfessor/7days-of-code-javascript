@@ -35,6 +35,12 @@ header #procuraFilme {
   width: 100%;
   padding: 16px;
   border-radius: 8px;
+  color: #ffffff;
+}
+
+header #procuraFilme:focus {
+  outline: none;
+  background-color: hsla(0, 0%, 100%, 0.329);
 }
 
 header .lupa {
@@ -42,6 +48,7 @@ header .lupa {
   right: 2em;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 10;
 }
 header input[type="checkbox"] {
   display: none;

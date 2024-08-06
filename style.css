@@ -130,6 +130,7 @@ main .filme .feedback > div .fa-star {
 }
 main .filme .feedback > div .fa-heart {
   color: #ba0707;
+  cursor: pointer;
 }
 
 main .filme .descricaoDoFilme {

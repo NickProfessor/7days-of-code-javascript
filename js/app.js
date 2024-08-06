@@ -1,5 +1,6 @@
 const filmes = document.querySelector("#filmes");
 const buscarBtn = document.querySelector(".lupa");
+
 const options = {
   method: "GET",
   headers: {
@@ -41,6 +42,12 @@ function pesquisarFilmes(nomeDoFilme) {
 }
 function renderizaFilmes(response) {
   response.results.forEach((movie) => {
+    var isFavoritado = false;
+    const nomeDoFilme = movie.original_title;
+    var filmesFavoritados = localStorage.getItem("filmes");
+    if (filmesFavoritados.includes(nomeDoFilme)) {
+      isFavoritado = true;
+    }
     filmes.innerHTML += `
     
   <div class="filme">
@@ -57,8 +64,13 @@ function renderizaFilmes(response) {
             <p>${movie.vote_average.toFixed(2)}</p>
           </div>
           <div class="favoritar">
-            <i class="fa-solid fa-heart"></i>
-            <p>Favoritar</p>
+            ${
+              isFavoritado
+                ? `<i class="fa-solid fa-heart"></i>
+            <p class="textoFavoritar">Desfavoritar</p>`
+                : `<i class="fa-regular fa-heart"></i>
+            <p class="textoFavoritar">Favoritar</p>`
+            }
           </div>
         </div>
       </div>
@@ -68,4 +80,44 @@ function renderizaFilmes(response) {
     </div>
 `;
   });
+  const botoesFavoritar = document.querySelectorAll(".fa-heart");
+  botoesFavoritar.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      favoritarFilme(botao);
+    });
+  });
+}
+
+function favoritarFilme(botao) {
+  const isFavoritado = botao.classList.contains("fa-solid");
+  const filme = botao.closest(".filme");
+  const nomeDoFilme = filme.querySelector(".informacoesDoFilme p").textContent;
+  const textoFavoritar = filme.querySelector(".textoFavoritar");
+  if (isFavoritado) {
+    botao.classList.remove("fa-solid");
+    botao.classList.add("fa-regular");
+    textoFavoritar.textContent = "Favoritar";
+  } else {
+    botao.classList.remove("fa-regular");
+    botao.classList.add("fa-solid");
+    textoFavoritar.textContent = "Desfavoritar";
+  }
+
+  armazenarFavorito(nomeDoFilme, !isFavoritado); // Passa o estado inverso
+}
+
+function armazenarFavorito(nomeDoFilme, adicionar) {
+  let filmesNaLocalStorage = JSON.parse(localStorage.getItem("filmes")) || [];
+
+  if (adicionar) {
+    if (!filmesNaLocalStorage.includes(nomeDoFilme)) {
+      filmesNaLocalStorage.push(nomeDoFilme);
+    }
+  } else {
+    filmesNaLocalStorage = filmesNaLocalStorage.filter(
+      (filme) => filme !== nomeDoFilme
+    );
+  }
+
+  localStorage.setItem("filmes", JSON.stringify(filmesNaLocalStorage));
 }

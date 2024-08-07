@@ -1,5 +1,5 @@
 import { exibeFavoritos } from "./exibeFavoritos.js";
-
+const inputPesquisar = document.querySelector("#procuraFilme");
 const filmes = document.querySelector("#filmes");
 const buscarBtn = document.querySelector(".lupa");
 const mostrarFavoritosBtn = document.querySelector("#mostrarFilmesFav");
@@ -28,7 +28,7 @@ export function exibirFilmesPopulares() {
 buscarBtn.addEventListener("click", (e) => {
   console.log("Clicou");
   e.preventDefault();
-  const inputValue = buscarBtn.previousElementSibling.value;
+  const inputValue = inputPesquisar.value;
   pesquisarFilmes(inputValue);
 });
 
@@ -133,6 +133,7 @@ function armazenarFavorito(nomeDoFilme, adicionar) {
 }
 
 mostrarFavoritosBtn.addEventListener("click", () => {
+  inputPesquisar.value = "";
   exibeFavoritos(mostrarFavoritosBtn, options);
 });
 

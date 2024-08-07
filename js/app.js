@@ -1,5 +1,8 @@
+import { exibeFavoritos } from "./exibeFavoritos.js";
+
 const filmes = document.querySelector("#filmes");
 const buscarBtn = document.querySelector(".lupa");
+const mostrarFavoritosBtn = document.querySelector("#mostrarFilmesFav");
 
 const options = {
   method: "GET",
@@ -9,16 +12,18 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNWEyYTQzMjM5OTIxZmJlZWQ3ZTY0M2FhODk0ZWU4NiIsIm5iZiI6MTcyMjcwOTI4MC4xMzE2MzEsInN1YiI6IjY2YWU3MzcwOTlkOGU2MjA5MWQ4ZWIyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8ievS79oI7PKX0RtMujZYCijVCY6QvH5qmC3I-Yx9CA",
   },
 };
-
-fetch(
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  options
-)
-  .then((response) => response.json())
-  .then((response) => {
-    renderizaFilmes(response);
-  })
-  .catch((err) => console.error(err));
+export function exibirFilmesPopulares() {
+  filmes.innerHTML = "";
+  fetch(
+    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    options
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      renderizaFilmes(response.results);
+    })
+    .catch((err) => console.error(err));
+}
 
 buscarBtn.addEventListener("click", (e) => {
   console.log("Clicou");
@@ -36,12 +41,13 @@ function pesquisarFilmes(nomeDoFilme) {
     .then((response) => response.json())
     .then((response) => {
       console.log(response);
-      renderizaFilmes(response);
+      renderizaFilmes(response.results);
     })
     .catch((err) => console.error(err));
 }
-function renderizaFilmes(response) {
-  response.results.forEach((movie) => {
+export function renderizaFilmes(response) {
+  console.log(response);
+  response.forEach((movie) => {
     var isFavoritado = false;
     const nomeDoFilme = movie.original_title;
     var filmesFavoritados = localStorage.getItem("filmes");
@@ -76,6 +82,7 @@ function renderizaFilmes(response) {
       </div>
       <p class="descricaoDoFilme">
         ${movie.overview}
+        ${movie.id}
       </p>
     </div>
 `;
@@ -121,3 +128,9 @@ function armazenarFavorito(nomeDoFilme, adicionar) {
 
   localStorage.setItem("filmes", JSON.stringify(filmesNaLocalStorage));
 }
+
+mostrarFavoritosBtn.addEventListener("click", () => {
+  exibeFavoritos(mostrarFavoritosBtn, options);
+});
+
+exibirFilmesPopulares();

@@ -85,7 +85,6 @@ export function renderizaFilmes(response) {
       </div>
       <p class="descricaoDoFilme">
         ${movie.overview}
-        ${movie.id}
       </p>
     </div>
 `;

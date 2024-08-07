@@ -66,7 +66,7 @@ export function renderizaFilmes(response) {
         class="imagemDoFilme"
       />
       <div class="informacoesDoFilme">
-        <p>${movie.original_title}</p>
+        <p class="tituloDoFilme">${movie.original_title}</p>
         <div class="feedback">
           <div class="avaliacao">
             <i class="fa-solid fa-star"></i>

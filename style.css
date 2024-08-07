@@ -106,7 +106,7 @@ main .filme img {
 }
 
 main .filme .informacoesDoFilme {
-  font-family: 18px;
+  font-size: 18px;
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -138,4 +138,41 @@ main .filme .descricaoDoFilme {
   font-size: 18px;
   color: #acacac;
   line-height: 1.5em;
+}
+
+@media (max-width: 840px) {
+  header .campoDePesquisa {
+    width: 80%;
+  }
+  main .filme {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  main .filme img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 0 10% 10% 10%;
+    height: 100%;
+  }
+  main .filme .informacoesDoFilme {
+    align-items: center;
+    width: 100%;
+  }
+
+  main .filme .tituloDoFilme {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+  main .filme .informacoesDoFilme .feedback {
+    margin: 0 auto;
+    gap: 1em;
+  }
+  main .filme .descricaoDoFilme {
+    width: 100%;
+  }
 }

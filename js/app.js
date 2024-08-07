@@ -50,10 +50,13 @@ export function renderizaFilmes(response) {
   response.forEach((movie) => {
     var isFavoritado = false;
     const nomeDoFilme = movie.original_title;
-    var filmesFavoritados = localStorage.getItem("filmes");
-    if (filmesFavoritados.includes(nomeDoFilme)) {
-      isFavoritado = true;
+    if (localStorage.getItem("filmes")) {
+      var filmesFavoritados = localStorage.getItem("filmes");
+      if (filmesFavoritados.includes(nomeDoFilme)) {
+        isFavoritado = true;
+      }
     }
+
     filmes.innerHTML += `
     
   <div class="filme">
